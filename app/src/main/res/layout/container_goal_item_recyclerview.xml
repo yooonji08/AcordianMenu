@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    android:layout_marginBottom="16dp">
+
+    <!--대표목표-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goalItem_bigGoalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/solid_goal_item_default_box">
+
+        <ImageView
+            android:id="@+id/goalItem_colorImageVIew"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="26dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/color_icon"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintStart_toEndOf="@+id/goalItem_colorImageVIew"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/goalItem_openButton"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/goalItem_bigGoalTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="대표 목표 이름"
+                android:textColor="@color/Black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/goalItem_iconLayout"
+                android:layout_width="match_parent"
+                android:layout_height="14dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/goalItem_openButton"
+            android:layout_width="16dp"
+            android:layout_height="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_open_button"
+            app:tint="@color/DarkBrown" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--하나의 대표목표에 속해있는 세부목표 리스트-->
+    <LinearLayout
+        android:id="@+id/goalItem_detailGoalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/solid_detail_goal_item_box"
+        android:orientation="vertical"
+        android:layout_marginTop="-12dp"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/goalItem_detailGoalRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="16dp"
+            tools:listitem="@layout/container_detail_goal_item_recyclerview"/>
+    </LinearLayout>
+</LinearLayout>
